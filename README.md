@@ -22,9 +22,12 @@ to collect and analyze these metrics in Prometheus Data Base.
 
 To use this project (or made monitoring with Prometheus and NodeJS Application), you must install :  
 - NodeJS (any version) : https://nodejs.org/en/
-- Prometheus : https://prometheus.io/download/
+- Prometheus : https://prometheus.io/download/  
+  
+To go further in monitoring :  
+  
 - Alertmanager : https://prometheus.io/download/
-- To go further in monitoring, Grafana : https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
+- Grafana : https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1
 
 
 ## III. Steps of monitoring
