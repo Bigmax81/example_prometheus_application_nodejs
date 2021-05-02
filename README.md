@@ -9,6 +9,7 @@
    2. [Implement metrics in project](#2-implement-metrics-in-project)
    3. [Create exporter for project](#3-create-exporter-for-project)
 4. [Project Launch](#iv-project-launch)
+5. [To go more far](#v-to-go-more-far)
 
 ## I. Introduction
 
@@ -124,3 +125,58 @@ Here, I indicate the metrics root will receive the metrics contained in the regi
 ## IV. Project Launch
 
 - Clone this project
+  
+
+- Edit configuration's file prometheus.yml with 
+~~~~
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'hello_exporter'
+
+    static_configs:
+      - targets: ['localhost:1000']
+~~~~
+
+
+- Go to http://localhost:9090, Prometheus link. You can see this :
+![img.png](img.png)
+  
+
+- In console, use `node Hello.ts` for launch program and see Prometheus Target :
+  hello_exporter must be active and you can, in Prometheus main page, use a request with the name of your metric.
+  
+  
+- Play with http://localhost:1000 and http://localhost:1000/metrics (or Prometheus) to look metric's evolution
+
+## V. To go more far
+
+You can configure Prometheus with rules files to generate alerts and send it to Alertmanager, who will manage them.  
+Also, you can configure Grafana to listen Prometheus and create dashbords to analyze our metrics.
