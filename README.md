@@ -166,7 +166,7 @@ scrape_configs:
 ~~~~
 
 
-- Go to http://localhost:9090, Prometheus link. You can see this :
+- Go to http://localhost:9090, Prometheus link and Status/Targets, you can see this :
 ![img.png](img.png)
   
 
