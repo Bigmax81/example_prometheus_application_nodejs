@@ -9,7 +9,7 @@
    2. [Implement metrics in project](#2-implement-metrics-in-project)
    3. [Create exporter for project](#3-create-exporter-for-project)
 4. [Project Launch](#iv-project-launch)
-5. [To go more far](#v-to-go-more-far)
+5. [To go further](#v-to-go-further)
 
 ## I. Introduction
 
@@ -179,7 +179,7 @@ scrape_configs:
   
 - Play with http://localhost:1000 and http://localhost:1000/metrics (or Prometheus) to look metric's evolution
 
-## V. To go more far
+## V. To go further
 
 You can configure Prometheus with rules files to generate alerts and send it to Alertmanager, who will manage them.  
 Also, you can configure Grafana to listen Prometheus and create dashbords to analyze our metrics.
