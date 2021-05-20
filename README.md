@@ -15,7 +15,7 @@
 
 This project is a simple example of using Prometheus Metrics with NodeJS Application
 for monitoring.  
-I present how we can implement metrics in a NodeJS project and using Prometheus
+I present how to implement metrics in a NodeJS project and how to use Prometheus
 to collect and analyze these metrics in Prometheus Data Base.
 
 ## II. Installation
@@ -56,9 +56,9 @@ Thus, we import **Counter** and **register** objects of NodeJS client for Promet
 
 **prom-client** give access to several Javascript Objects representing the different
 types of Prometheus metrics : Counter, Gauge, Summary and Histogram.
-According to your needs, you can choose one (or more) of these metrics and using in your project.  
+According to your needs, you can choose one (or more) of these metrics and use it in your project.  
 
-Here, I wish count the number of requests to the web page corresponding to a mini-server. So, in
+Here, I want to count the number of requests to the web page corresponding to a mini-server. So, in
 **Hello.ts** file, I create a server with NodeJS module **restify** like this :
 
 ~~~~
@@ -71,7 +71,7 @@ And :
 const server = restify.createServer(); // Server creation
 ~~~~
 
-After this, you can initialize your(s) metric(s) respecting the architecture of the NodeJS client
+Then, you can initialize your(s) metric(s) respecting the architecture of the NodeJS client
 (and most of Prometheus Client).
 
 ~~~~
@@ -85,8 +85,8 @@ For Prometheus metrics, you can respect different rules of **name** : https://pr
 For example, with a Counter metrics, the name ends with _\_total_.  
 **help** indicate the usefulness of the metric.
 
-When the metric is initialized, you can use it in your project with the
-functions offerts by the Prometheus client like this :
+When the metric is initialized, you can use it in your project with the offered
+functions by the Prometheus client like this :
 ~~~~
 // Definition of the main route localhost:1000
 server.get("/", async (req, res) =>{
@@ -99,7 +99,7 @@ server.get("/", async (req, res) =>{
 });
 ~~~~
 
-Here, I indicate the main route will receive "Hello World" as information. But
+Here, I indicate that the main route will receive "Hello World" as information. But
 the second line increment our metric ( inc() default : +1), whenever a request on the main route is made.
 
 ### 3. Create exporter for project
@@ -173,7 +173,7 @@ scrape_configs:
 ![img.png](img.png)
   
 
-- In console, use `node Hello.ts` for launch program and see Prometheus Target :
+- In console, use `node Hello.ts` to launch program and see Prometheus Target :
   hello_exporter must be active and you can, in Prometheus main page, use a request with the name of your metric.
   
   
@@ -182,4 +182,4 @@ scrape_configs:
 ## V. To go further
 
 You can configure Prometheus with rules files to generate alerts and send it to Alertmanager, who will manage them.  
-Also, you can configure Grafana to listen Prometheus and create dashbords to analyze our metrics.
+You can also configure Grafana to listen to Prometheus and create dashbords to analyze our metrics.
