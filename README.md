@@ -1,4 +1,4 @@
-# Prometheus and NodeJS Application
+# Prometheus and NodeJS Application 
 
 # Table of contents
 
